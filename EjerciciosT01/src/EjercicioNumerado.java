@@ -21,26 +21,33 @@ redondeada a 2 decimales. CosteBar)
         Scanner lectorTeclado = new Scanner(System.in);
 // 1-> pedir cosas por teclado
 // 2-> guardar cosas en variables
-        System.out.print("¿Cuantas bebidas vas a comprar?: ");
-        int bebidas = lectorTeclado.nextInt();
-        System.out.print("¿Cuantos bocadillos vas a comprar?: ");
-        int bocatas = lectorTeclado.nextInt();
-        System.out.print("¿Cuanto vale cada bebida?: ");
-        double precioBebida = lectorTeclado.nextInt();
-        System.out.print("¿Cuanto vale cada bocadillo?: ");
-        double precioBocadillo = lectorTeclado.nextInt();
-        System.out.print("¿Cuantas personas han realizado la compra?: ");
-        int numeroPersonas = lectorTeclado.nextInt();
+        System.out.print("Número de bebidas (entre 0 y 20): ");
+        int inputBebidas = lectorTeclado.nextInt();
+        int bebidas = Math.min(inputBebidas, 20);
+        System.out.print("Número de bocadillos (entre 0 y 20): ");
+        int inputBocatas = lectorTeclado.nextInt();
+        int bocatas = Math.min(inputBocatas, 20);
+        System.out.print("Precio de cada bebida (entre 0,00 y 3,00€): ");
+        double inputPrecioBebida = lectorTeclado.nextDouble();
+        double precioBebida = Math.min(inputPrecioBebida, 3);
+        System.out.print(" Precio de cada bocadillo (entre 0,00 y 5,00€): ");
+        double inputPrecioBocadillo = lectorTeclado.nextDouble();
+        double precioBocadillo = Math.min(inputPrecioBocadillo, 5);
+
+        System.out.print("¿Cuantas personas han realizado la compra? (entre 1 y 10): ");
+        int inputNumeroPersonas = lectorTeclado.nextInt();
+        int numeroPersonas = Math.min(inputNumeroPersonas, 10);
+
 //3-> realizar cálculos
         double costeBocatas = bocatas*precioBocadillo;
         double costeBebidas = bebidas*precioBebida;
         double costeTotal = costeBocatas+costeBebidas;
         double precioPersona = costeTotal/numeroPersonas;
 //4-> mostrar información
-        System.out.println("El precio total de la compra es: " +costeTotal);
-        System.out.println("El precio total de la los bocatas es: " +costeBocatas);
-        System.out.println("El precio total de la las bebidas es: " +costeBebidas);
-        System.out.println("El precio a pagar por persona es: " +precioPersona);
+        System.out.println("Subtotal bebidas: " +costeBebidas+ "€");
+        System.out.println("Subtotal bocatas: " +costeBocatas+ "€");
+        System.out.println("Total de la compra: " +costeTotal+ "€");
+        System.out.println("Cantidad a pagar por persona: " +precioPersona+ "€");
 
         lectorTeclado.close();
     }
