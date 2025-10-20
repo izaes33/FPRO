@@ -17,7 +17,7 @@ redondeada a 2 decimales. CosteBar)
 3-> realizar cálculos
 4-> mostrar información*/
 
-    public void ejercicio01() { //Calculadora de salario con condiciones
+    /*public void ejercicio01() {
         Scanner lectorTeclado = new Scanner(System.in);
 // 1-> pedir cosas por teclado
 // 2-> guardar cosas en variables
@@ -50,5 +50,32 @@ redondeada a 2 decimales. CosteBar)
         System.out.println("Cantidad a pagar por persona: " +precioPersona+ "€");
 
         lectorTeclado.close();
+    }*/
+
+    /* Permítase introducir el valor con IVA de una compra con dos decimales (la
+compra no puede ser superior a 500€ ni inferior a 0€ y el valor del IVA de dicha
+compra (valor entero entre 0 y 25%.¿Cuánto costó la compra sin IVA?¿Cuánto fue
+el IVA? Muéstrese los resultados redondeados a dos decimales. Compra)
+
+1-> pedir cosas por teclado
+2-> guardar cosas en variables
+3-> realizar cálculos
+4-> mostrar información */
+
+    public void ejercicio02() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.print("Valor de la compra (entre 0.00 y 500.00): ");
+        double inputPrecioVenta = lectorTeclado.nextDouble();
+        double precioVenta = Math.min(inputPrecioVenta, 500);
+        System.out.print(" IVA (entre 0 y 25%): ");
+        int inputTasa = lectorTeclado.nextInt();
+        int tasa = Math.min(inputTasa, 25);
+        double costeTasa = (precioVenta/100)*tasa;
+        double precioSinIva = precioVenta-costeTasa;
+        System.out.printf("Precio sin IVA: %.2f€\n",precioSinIva);
+        System.out.printf("Importe IVA: %.2f€\n",costeTasa);
+        // Original (Incorrecto): System.out.printf("Precio sin IVA: %.2f%n", precioSinIva + "€");
+        // Corrección: Pasa solo la variable 'double' y añade el símbolo '€' al texto
+        // System.out.printf("Precio sin IVA: %.2f€%n", precioSinIva);
     }
 }

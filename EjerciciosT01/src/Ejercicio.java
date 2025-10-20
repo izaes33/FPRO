@@ -2,6 +2,6 @@ public class Ejercicio {
     public static void main(String[] args) {
 
         EjercicioNumerado ejecutaEjercicio = new EjercicioNumerado ();
-        ejecutaEjercicio.ejercicio01();
+        ejecutaEjercicio.ejercicio02();
     }
 }
