@@ -62,7 +62,7 @@ el IVA? Muéstrese los resultados redondeados a dos decimales. Compra)
 3-> realizar cálculos
 4-> mostrar información */
 
-    public void ejercicio02() {
+    /*public void ejercicio02() {
         Scanner lectorTeclado = new Scanner(System.in);
         System.out.print("Valor de la compra (entre 0.00 y 500.00): ");
         double inputPrecioVenta = lectorTeclado.nextDouble();
@@ -77,5 +77,47 @@ el IVA? Muéstrese los resultados redondeados a dos decimales. Compra)
         // Original (Incorrecto): System.out.printf("Precio sin IVA: %.2f%n", precioSinIva + "€");
         // Corrección: Pasa solo la variable 'double' y añade el símbolo '€' al texto
         // System.out.printf("Precio sin IVA: %.2f€%n", precioSinIva);
+    }*/
+
+    /*Ejercicio 3
+ Se introducen los 5 dígitos de un número (decenas de mil, unidades de mil,
+centenas, decenas y unidades), y se obtiene el número correspondiente.
+Numero)
+
+1-> pedir cosas por teclado
+2-> guardar cosas en variables
+3-> realizar cálculos
+4-> mostrar información */
+
+    /*public void ejercicio03() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.print("Decenas de mil: ");
+        int decenasDeMil = lectorTeclado.nextInt();
+        System.out.print("Unidades de mil: ");
+        int unidadesDeMil = lectorTeclado.nextInt();
+        System.out.print("Centenas: ");
+        int centenas = lectorTeclado.nextInt();
+        System.out.print("Decenas: ");
+        int decenas = lectorTeclado.nextInt();
+        System.out.print("Unidades: ");
+        int unidades = lectorTeclado.nextInt();
+        int numeroIntroducido = (decenasDeMil * 10000) + (unidadesDeMil * 1000) + (centenas * 100) + (decenas * 10) + unidades;
+        System.out.print("Numero introducido: " + numeroIntroducido);
+    }*/
+
+    /*Ejercicio 4
+ Hágase un programa que convierta segundos en horas, minutos y segundos.
+ Segundos)*/
+
+    public void ejercicio04() {
+        Scanner lectorTeclado = new Scanner(System.in);
+        System.out.print("Número de segundos: ");
+        int inputSegundos = lectorTeclado.nextInt();
+        int horas = inputSegundos / 3600;
+        int minutos = (inputSegundos % 3600) / 60;
+        int segundos = inputSegundos % 60;
+        System.out.println("Horas: " + horas);
+        System.out.println("Minutos: " + minutos);
+        System.out.println("Segundos: " + segundos);
     }
 }
