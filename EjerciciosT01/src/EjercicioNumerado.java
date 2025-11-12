@@ -17,7 +17,7 @@ redondeada a 2 decimales. CosteBar)
 3-> realizar cálculos
 4-> mostrar información*/
 
-    /*public void ejercicio01() {
+    public void ejercicio01() {
         Scanner lectorTeclado = new Scanner(System.in);
 // 1-> pedir cosas por teclado
 // 2-> guardar cosas en variables
@@ -50,7 +50,7 @@ redondeada a 2 decimales. CosteBar)
         System.out.println("Cantidad a pagar por persona: " +precioPersona+ "€");
 
         lectorTeclado.close();
-    }*/
+    }
 
     /* Permítase introducir el valor con IVA de una compra con dos decimales (la
 compra no puede ser superior a 500€ ni inferior a 0€ y el valor del IVA de dicha
@@ -62,7 +62,7 @@ el IVA? Muéstrese los resultados redondeados a dos decimales. Compra)
 3-> realizar cálculos
 4-> mostrar información */
 
-    /*public void ejercicio02() {
+    public void ejercicio02() {
         Scanner lectorTeclado = new Scanner(System.in);
         System.out.print("Valor de la compra (entre 0.00 y 500.00): ");
         double inputPrecioVenta = lectorTeclado.nextDouble();
@@ -77,7 +77,7 @@ el IVA? Muéstrese los resultados redondeados a dos decimales. Compra)
         // Original (Incorrecto): System.out.printf("Precio sin IVA: %.2f%n", precioSinIva + "€");
         // Corrección: Pasa solo la variable 'double' y añade el símbolo '€' al texto
         // System.out.printf("Precio sin IVA: %.2f€%n", precioSinIva);
-    }*/
+    }
 
     /*Ejercicio 3
  Se introducen los 5 dígitos de un número (decenas de mil, unidades de mil,
@@ -89,7 +89,7 @@ centenas, decenas y unidades), y se obtiene el número correspondiente.
 3-> realizar cálculos
 4-> mostrar información */
 
-    /*public void ejercicio03() {
+    public void ejercicio03() {
         Scanner lectorTeclado = new Scanner(System.in);
         System.out.print("Decenas de mil: ");
         int decenasDeMil = lectorTeclado.nextInt();
@@ -103,10 +103,10 @@ centenas, decenas y unidades), y se obtiene el número correspondiente.
         int unidades = lectorTeclado.nextInt();
         int numeroIntroducido = (decenasDeMil * 10000) + (unidadesDeMil * 1000) + (centenas * 100) + (decenas * 10) + unidades;
         System.out.print("Numero introducido: " + numeroIntroducido);
-    }*/
+    }
 
-    /*Ejercicio 4
- Hágase un programa que convierta segundos en horas, minutos y segundos.
+    Ejercicio 4
+ /*Hágase un programa que convierta segundos en horas, minutos y segundos.
  Segundos)*/
 
     public void ejercicio04() {
