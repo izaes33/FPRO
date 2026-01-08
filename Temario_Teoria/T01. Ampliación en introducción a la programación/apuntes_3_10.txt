@@ -1,0 +1,37 @@
+Algoritmo -> pequeños problemas -> juntos solucionan EL PROBLEMA
+	Input
+	Output
+	Proceso
+
+Elementos principales de un programa
+	Clases -> {estructura fundamental // estructura // molde}
+	Funciones o metodos -> {ejecuciones que se pueden hacer}
+	Variables -> {datos que se guardan para poder ser utilizados en algun momento}
+
+Fases de desarrollo:
+
+1. Planificar -> pienso la idea y la posible solucion
+2. Diseño -> graficos que muestren el programa y su solucion. Wireframe / UML (diagrama de base de datos, diagrama de clases, diagrama de flujo)
+3. Codificacion -> Me baso en el diseño 
+
+Donde se ejecutan los programas -> servidor // local del cliente
+
+planifico->diseño->codifico->pruebo->lanzo (servidor/genero el .exe .msi .dmg)
+Programacion -> en una maquina. Potencia i9 					i3
+								Memoria 32gb					2Gb
+								Capacidad calculo 3,2GHz		1,2Ghz
+								1T SSD							32Gb Mecanico
+
+Optimizar codigo
+
+
+SGT -> 40000 Lineas de codigo -> 3000€
+SGT -> 20000 Lineas de codigo -> 6000€
+
+menos lineas de codigo (menos ciclos de ejecucion)
+menos accesos a disco
+menos uso de memoria
+
+
+Torres de Hanoi
+Factorial de un numero -> 9! 9*8*7*6*5*4*3*2*1 -> resultado = n*(n-1) hasta que lleges a 1
