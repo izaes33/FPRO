@@ -1,94 +1,98 @@
+// Declaramos el paquete controller
 package controller;
 
+// Importamos las clases necesarias
 import model.Equipo;
 import model.Partido;
 import java.util.ArrayList;
 import java.util.List;
 
+// Clase encargada de registrar y gestionar equipos y partidos
 public class Registrador {
-    private ArrayList<Partido> listaPartidos;
-    private List<Equipo> equipos;
 
-    public Registrador() {
-        this.listaPartidos = new ArrayList<>();
-        this.equipos = new ArrayList<>();
-    }
+    // Lista donde se almacenan todos los equipos
+    private List<Equipo> equipos;
+    // Lista donde se almacenan todos los partidos
+    private List<Partido> partidos;
 
     /**
-     * Añade un equipo a la lista de equipos registrados
+     * Añade un equipo al registro
      */
-    public void agregarEquipo(Equipo equipo) {
+    public void registrarEquipo(Equipo equipo) {
+
+        // Si la lista no está inicializada, la creamos
+        if (equipos == null) {
+            equipos = new ArrayList<>();
+        }
+
+        // Añadimos el equipo a la lista
         equipos.add(equipo);
     }
 
     /**
-     * Genera todos los partidos de ida y vuelta (todos contra todos)
-     * Cada equipo juega contra cada otro equipo exactamente 2 veces:
-     * una como local y otra como visitante
+     * Registra un partido en el sistema
      */
-    public void generarLigaCompleta() {
-        if (equipos.size() < 2) {
-            System.out.println("Se necesitan al menos 2 equipos para generar partidos.");
-            return;
-        }
-
-        listaPartidos.clear(); // Limpiamos partidos anteriores si los hubiera
-
-        // Recorremos cada equipo como LOCAL
-        for (int i = 0; i < equipos.size(); i++) {
-            Equipo local = equipos.get(i);
-
-            // Contra todos los demás como VISITANTE
-            for (int j = 0; j < equipos.size(); j++) {
-                if (i != j) {  // No se juega contra sí mismo
-                    Equipo visitante = equipos.get(j);
-
-                    // Creamos el partido (sin resultado aún)
-                    Partido partido = new Partido(local, visitante);
-                    listaPartidos.add(partido);
-                }
-            }
-        }
-
-        System.out.println("Generados " + listaPartidos.size() + " partidos (ida y vuelta).");
-    }
-
     public void registrarPartido(Partido partido) {
-        listaPartidos.add(partido);
+
+        // Si la lista no está inicializada, la creamos
+        if (partidos == null) {
+            partidos = new ArrayList<>();
+        }
+
+        // Añadimos el partido a la lista
+        partidos.add(partido);
     }
 
+    /**
+     * Muestra todos los partidos registrados
+     */
     public void mostrarPartidos() {
-        if (listaPartidos.isEmpty()) {
+
+        // Comprobamos si hay partidos
+        if (partidos == null || partidos.isEmpty()) {
             System.out.println("No hay partidos registrados.");
             return;
+        }
+
+        // Recorremos y mostramos cada partido
+        for (Partido p : partidos) {
+            p.mostrarDatos();
         }
     }
 
     /**
-     * Busca y muestra las estadísticas de un equipo
+     * Busca un equipo por nombre y muestra sus estadísticas
      */
-    public void buscarEstadisticas(String nombre) {
+    public void buscarEstadisticasEquipo(String nombre) {
+
+        // Indicador de búsqueda
         boolean encontrado = false;
 
-        for (Equipo eq : equipos) {
-            if (eq.getNombre().equalsIgnoreCase(nombre)) {
-                eq.mostrarEstadisticas();
+        // Recorremos la lista de equipos
+        for (Equipo e : equipos) {
+
+            // Comparamos nombres ignorando mayúsculas
+            if (e.getNombre().equalsIgnoreCase(nombre)) {
+
+                // Mostramos estadísticas
+                e.mostrarEstadisticas();
                 encontrado = true;
                 break;
             }
         }
 
+        // Si no se encontró el equipo
         if (!encontrado) {
-            System.out.println("No se encontró el equipo: " + nombre);
+            System.out.println("Equipo no encontrado: " + nombre);
         }
     }
 
     // Getters
-    public ArrayList<Partido> getListaPartidos() {
-        return listaPartidos;
-    }
-
     public List<Equipo> getEquipos() {
         return equipos;
+    }
+
+    public List<Partido> getPartidos() {
+        return partidos;
     }
 }

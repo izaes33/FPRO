@@ -1,0 +1,69 @@
+Inicio del programa:
+----------------------
+El programa comienza en Main.main()
+Desde ahí se crea un objeto Campeonato y se ejecuta el método ejecutarCampeonato().
+Main no contiene lógica: actúa únicamente como punto de arranque.
+
+
+Ejecución secuencial del campeonato:
+------------------------------------
+El método ejecutarCampeonato() controla todo el flujo del programa de forma automática y ordenada.
+Las fases se ejecutan siempre en el mismo orden, sin intervención del usuario.
+
+
+Creación de equipos:
+--------------------
+En crearEquipos():
+se instancian los objetos Equipo
+se inicializan sus estadísticas
+se almacenan en una lista interna
+En este punto el campeonato aún no tiene partidos.
+
+
+Generación del calendario:
+--------------------------
+En generarCalendario():
+se utilizan dos bucles for anidados
+cada equipo se enfrenta a todos los demás
+se evita que un equipo juegue contra sí mismo
+cada enfrentamiento se genera dos veces:
+una como local
+otra como visitante
+Esto produce una liga a doble vuelta.
+Cada enfrentamiento genera un objeto Partido.
+
+
+Visualización del calendario:
+-----------------------------
+En mostrarPartidos():
+se recorre la lista de partidos
+se muestran los emparejamientos
+no se muestran resultados aún
+Sirve para verificar la correcta generación del calendario.
+
+
+Simulación de resultados:
+-------------------------
+En simularResultados():
+se recorren todos los partidos
+se generan goles aleatorios
+cada partido registra su resultado
+El objeto Partido actualiza directamente las estadísticas de los equipos implicados.
+No hay duplicación de datos ni cálculos posteriores.
+
+
+Estadísticas finales:
+---------------------
+En mostrarEstadisticas():
+se recorren los equipos
+se muestran los goles acumulados
+se calcula la diferencia de goles
+Los datos reflejan el resultado completo del campeonato.
+
+
+Finalización:
+-------------
+Cuando ejecutarCampeonato() termina:
+el control vuelve a Main
+el programa finaliza su ejecución
+No quedan procesos pendientes.
