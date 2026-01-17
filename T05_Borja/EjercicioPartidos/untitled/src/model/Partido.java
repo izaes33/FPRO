@@ -17,6 +17,15 @@ public class Partido {
     }
 
     /**
+     * Muestra los equipos que disputan el partido
+     */
+    public void mostrarDatos() {
+        System.out.println(
+                equipoLocal.getNombre() + " vs " + equipoVisitante.getNombre()
+        );
+    }
+
+    /**
      * Registra el resultado del partido
      */
     public void registrarResultado(int golesLocal, int golesVisitante) {
@@ -29,19 +38,10 @@ public class Partido {
         golVisitante = golesVisitante;
         jugado = true;
 
-        equipoLocal.setgFavor(equipoLocal.getgFavor() + golesLocal);
-        equipoLocal.setGolContra(equipoLocal.getGolContra() + golesVisitante);
+        equipoLocal.setGolFavor(equipoLocal.getGolFavor() + golLocal);
+        equipoLocal.setGolContra(equipoLocal.getGolContra() + golVisitante);
 
-        equipoVisitante.setgFavor(equipoVisitante.getgFavor() + golesVisitante);
+        equipoVisitante.setGolFavor(equipoVisitante.getGolFavor() + golesVisitante);
         equipoVisitante.setGolContra(equipoVisitante.getGolContra() + golesLocal);
-    }
-
-    /**
-     * Muestra los equipos que disputan el partido
-     */
-    public void mostrarDatos() {
-        System.out.println(
-                equipoLocal.getNombre() + " vs " + equipoVisitante.getNombre()
-        );
     }
 }

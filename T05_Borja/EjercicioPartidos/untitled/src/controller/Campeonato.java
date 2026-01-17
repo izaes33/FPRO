@@ -22,22 +22,16 @@ public class Campeonato {
 
         // Mostramos mensaje inicial
         System.out.println("=== INICIO DEL CAMPEONATO ===\n");
-
         // Creamos los equipos
         crearEquipos();
-
         // Generamos el calendario
         generarCalendario();
-
         // Mostramos los partidos
         mostrarPartidos();
-
-        // Simulamos los resultados
+        // Simulamos los resultados y los registramos
         simularResultados();
-
         // Mostramos estadísticas finales
         mostrarEstadisticas();
-
         // Mostramos mensaje final
         System.out.println("\n=== FIN DEL CAMPEONATO ===");
     }
@@ -65,28 +59,21 @@ public class Campeonato {
 
         // Recorremos los equipos como locales
         for (int i = 0; i < equipos.size(); i++) {
-
             // Equipo local
             Equipo local = equipos.get(i);
-
             // Recorremos los equipos como visitantes
             for (int j = 0; j < equipos.size(); j++) {
-
                 // Evitamos que un equipo juegue contra sí mismo
                 if (i != j) {
-
                     // Equipo visitante
                     Equipo visitante = equipos.get(j);
-
                     // Creamos el partido
                     Partido partido = new Partido(local, visitante);
-
                     // Añadimos el partido a la lista
                     partidos.add(partido);
                 }
             }
         }
-
         // Informamos del número de partidos
         System.out.println("Partidos generados (ida y vuelta): " + partidos.size() + "\n");
     }
@@ -95,15 +82,12 @@ public class Campeonato {
      * Muestra el calendario completo
      */
     private void mostrarPartidos() {
-
         // Mostramos cabecera
         System.out.println("CALENDARIO COMPLETO:\n");
-
         // Recorremos los partidos
         for (Partido p : partidos) {
             p.mostrarDatos();
         }
-
         // Separador visual
         System.out.println();
     }

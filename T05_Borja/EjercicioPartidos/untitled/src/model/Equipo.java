@@ -29,11 +29,11 @@ public class Equipo {
         return nombre;
     }
 
-    public int getgFavor() {
+    public int getGolFavor() {
         return golFavor;
     }
 
-    public void setgFavor(int golFavor) {
+    public void setGolFavor(int golFavor) {
         this.golFavor = golFavor;
     }
 
