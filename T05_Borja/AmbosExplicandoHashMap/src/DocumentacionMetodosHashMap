@@ -1,0 +1,81 @@
+Diagrama conceptual de la clase Asignatura:
+------------------------------------------
+Asignatura
+│
+├── listaNotas : HashMap<String, Alumno>
+│
+├── agregarAlumno(Alumno)
+├── buscarAlumno(String dni)
+├── buscarNMejoresExpedientes(int n)
+├── buscarExpedientesSuperioresA(double nota)
+└── vaciarLista()
+
+
+Diagrama de datos:
+-----------------
+HashMap<String, Alumno> listaNotas
+│
+├── "123A" ──► Alumno
+│               ├── dni
+│               ├── nombre
+│               └── nota
+│
+├── "456B" ──► Alumno
+                ├── dni
+                ├── nombre
+                └── nota
+
+👉 Clave = DNI
+👉 Valor = objeto Alumno completo
+
+
+
+agregarAlumno:
+--------------
+Alumno → getDni()
+       → containsKey(dni)?
+           ├─ sí → no se agrega
+           └─ no → put(dni, alumno)
+
+
+buscarAlumno:
+--------------
+dni → listaNotas.get(dni) → Alumno
+
+(Devuelve el objeto Alumno real, no una copia).
+
+
+buscarNMejoresExpedientes:
+--------------------------
+HashMap
+  ↓ keySet()
+DNIs
+  ↓ get(dni)
+Alumnos
+  ↓ ArrayList
+Lista
+  ↓ sort (nota DESC)
+Lista ordenada
+  ↓ subList().clear()
+Top N alumnos
+
+
+buscarExpedientesSuperioresA:
+-----------------------------
+HashMap
+  ↓ recorrer
+Alumno → getNota()
+       ≥ nota ?
+       ├─ sí → mostrarDatos()
+       └─ no → ignorar
+Final
+  ↓
+¿encontrado == false?
+  └─ mostrar mensaje
+
+
+vaciarLista:
+--------------
+listaNotas.clear()
+Asignatura sin alumnos.
+
