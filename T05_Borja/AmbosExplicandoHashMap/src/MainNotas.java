@@ -37,15 +37,15 @@ public class MainNotas {
                             System.out.println("Nota incorrecta vuelve a introducir una nota entre 0-10");
                         }
                     }
-                    Alumno alumno = new Alumno(dni, nombre, apellido, nota);
-                    asignatura.agregarAlumno(alumno);
+                    Alumno alumnoAñadido = new Alumno(dni, nombre, apellido, nota);
+                    asignatura.agregarAlumno(alumnoAñadido);
                 }
                 case 2 -> {
                     System.out.println("Vamos a buscar la nota de un Alumno");
                     System.out.println("Introduce el dni del alumno que quieres saber su nota");
                     String dni = scanner.next();
                     Alumno alumno = asignatura.buscarAlumno(dni); /* S está creando una variable temporal instanciando un objeto
-                    que iguala obtiene todos sus parámetros del que encuentra el método buscarAlumno
+                    que obtiene todos sus parámetros del que encuentra el método buscarAlumno
                     (al que se le pasa como argumento en dni) */
                     System.out.println("La nota de " + alumno.getNombre() + " es " + alumno.getNota() );
                 }
