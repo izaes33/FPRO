@@ -1,0 +1,52 @@
+En teoría, funciona con cualquier tamaño n (4, 5, 6...), pero en la práctica solo es usable con n=3 por una razón muy importante:
+el tiempo que tarda en encontrar un cuadrado mágico.
+
+¿Por qué parece que "solo funciona con n=3"?
+Porque para n>3, el programa puede tardar horas, días o incluso años en encontrar una solución
+(o nunca terminar en una computadora normal), y parece que "se cuelga" o no funciona.
+
+Explicación matemática del problema:
+El algoritmo que usa el programa es fuerza bruta:
+Toma los números del 1 al n² (sin repetir).
+Los baraja aleatoriamente (genera una permutación al azar).
+Comprueba si esa disposición forma un cuadrado mágico.
+Si no, repite con otra permutación aleatoria.
+El número total de permutaciones posibles es: (n²)! Eso es un número enormemente grande incluso para valores pequeños:
+n	Tamaño matriz	Total números	Número de permutaciones posibles	Tiempo aproximado (en una PC normal)
+3	3x3	     9	        9! =                             362.880	                  Segundos o minutos
+4	4x4	     16	       16! ≈                  20.922.789.888.000	      Siglos (imposible en práctica)
+5	5x5	     25	       25! ≈                         1.55 × 10²⁵	        Más que la edad del universo
+Para n=3 hay "solo" 362.880 posibilidades → el programa las prueba rápido (miles por segundo) y encuentra uno en segundos.
+Para n=4 hay más de 20 billones de posibilidades → aunque pruebe millones por segundo, tardaría miles de años en promedio.
+
+¿Existen cuadrados mágicos para n=4, n=5, etc.?
+¡Sí! Existen muchos:
+Para n=4 hay cuadrados mágicos famosos (como el de Durero).
+Para cualquier n ≥ 3 existen, excepto cuando n es múltiplo de... (hay reglas, pero en general sí existen).
+Pero encontrar uno al azar entre trillones de posibilidades es prácticamente imposible.
+
+Conclusión
+El código funciona correctamente para cualquier n, pero:
+Con n=3 → termina rápido → parece que funciona perfecto.
+Con n=4 o más → casi nunca termina → parece que "no funciona" o se queda colgado.
+¿Por qué es imposible un cuadrado mágico de 2x2?
+Un cuadrado mágico requiere:
+Números distintos (normalmente 1, 2, 3, 4 para n=2).
+Que todas las filas, columnas y ambas diagonales sumen lo mismo (constante mágica).
+Para n=2, la constante mágica sería: 22×(22+1)=5
+Imagina la matriz 2x2:
+text
+a b
+c d
+Condiciones:
+Fila 1: a + b = 5
+Fila 2: c + d = 5
+Columna 1: a + c = 5
+Columna 2: b + d = 5
+Diagonal principal: a + d = 5
+Diagonal secundaria: b + c = 5
+Si resuelves este sistema de ecuaciones, llegas rápidamente a una contradicción: Todas las ecuaciones fuerzan que a = b = c = d (todos iguales).
+Pero los números deben ser distintos → imposible
+Hay solo 4! = 24 permutaciones posibles de {1,2,3,4}, y ninguna cumple todas las sumas iguales con números distintos.
+Esto es un resultado matemático conocido: no existe ningún cuadrado mágico de orden 2. Los cuadrados mágicos "normales"
+(con números consecutivos 1 a n² sin repetir) solo existen para n=1 (trivial) y para todo n ≥ 3.

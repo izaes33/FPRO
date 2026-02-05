@@ -1,0 +1,28 @@
+El programa se estructura de manera resumida, de forma que se divide en 2 clases (Main y CuadradoMagico), siendo la
+clase CuadradoMagico la clase que contiene tanto las características que definirían una clase modelo, como la lógica
+que definiría una clase controladora, en caso de aplicar modulación.
+
+
+El método principal que controla la ejecución del programa es el método iniciar. El cual:
+Pide el tamaño de la matriz y guarda la entrada de datos en una variable.
+Inicializa la matriz con el tamaño que le indica la variable.
+Crea una variable de control para saber cuándo se ha encontrado el cuadrado mágico. (boolean esMagico = false)
+Utiliza un while (!esMagico), en el que mientras no se haya encontrado la solución, se suma un intento, y se llama
+al método rellenarMatrizAleatoria, que genera matrices aleatorias con números sin repetir, para luego llamar a
+comprobarCuadradoMagico y comprobar si la matriz generada es un cuadrado mágico, en cuyo caso la bandera se igualaría
+a true, dejando de ejecutar while, y llamando al método mostrarMatriz, que imprimiría === CUADRADO MÁGICO ENCONTRADO ===
+seguido de la matriz.
+En la siguiente línea imprimiría la constante mágica llamando en la impresión al método constanteMagica, y en la
+siguiente y última línea imprimiría los intentos que se han realizado.
+
+
+El método rellenarMatrizAleatoria mezcla los números del 1 al n² y los va colocando uno a uno en la matriz,
+sin repetir ninguno.
+
+El método comprobarCuadradoMagico comprueba si la matriz actual cumple las condiciones de un cuadrado mágico.
+Verifica filas, columnas y diagonales.
+
+Otro método se ejecuta desde comprobarCuadradoMagico, este se llama constanteMagica, y lo que hace es
+calcular la constante mágica sumando los elementos de la primera fila creados mediante rellenarMatrizAleatoria.
+
+El método mostrarMatriz muestra la matriz por pantalla con formato de cuadrado.
