@@ -1,0 +1,86 @@
+Trabajar con archivos XML en Java introduce
+conceptos como las anotaciones, la serialización y las dependencias externas.
+
+El objetivo de este código es coger objetos que existen en la memoria del
+programa Java (usuarios y direcciones) y guardarlos en un archivo de texto
+con un formato estructurado llamado XML.
+
+Este proceso se divide en varias herramientas clave:
+----------------------------------------------------
+-   XML (eXtensible Markup Language): Es un lenguaje de etiquetas que almacena
+datos de forma legible tanto para máquinas como para humanos. Funciona con
+etiquetas de apertura <nombre> y cierre </nombre>.
+----------------------------------------------------
+- JAXB (Java Architecture for XML Binding): Es la tecnología de Java que
+automatiza la conversión entre tus objetos de Java y el archivo XML.
+(El proceso de convertir un Objeto Java a XML se llama Marshalling.
+El proceso inverso (leer el XML y crear objetos Java), Unmarshalling).
+---------------------------------------------------
+- Anotaciones (@): Son instrucciones especiales que pones encima de clases o
+variables para darle órdenes a JAXB o a Lombok.
+---------------------------------------------------
+Lombok: Es una librería que sirve para ahorrarte escribir código repetitivo.
+Al poner anotaciones como @Getter o @Setter, Lombok genera "invisiblemente"
+los métodos get y set al compilar, dejando tus archivos Java mucho más limpios y
+fáciles de leer.
+
+
+Para entender cómo funciona el programa, el "camino" que hace la computadora
+paso a paso desde el momento en que se ejecuta el código, es:
+
+1. El punto de partida: La clase GestorFicheros ->
+El programa entra en el método exportarXML() de la clase GestorFicheros.
+Su primera instrucción es Agenda agenda = new Agenda();. En este momento,
+el programa hace una pausa aquí y "viaja" a la clase Agenda.
+
+2. Preparando la "caja" principal: La clase Agenda ->
+Al llegar a la clase Agenda, el programa busca su constructor (el método
+public Agenda()) para saber cómo crear este objeto.
+Dentro del constructor, ejecuta lista = new ArrayList<>();. Esto crea una lista
+vacía en la memoria de la computadora, lista para empezar a guardar usuarios.
+Una vez hecho esto, el programa vuelve a GestorFicheros.
+
+3. Creando las piezas y llenando la lista (Población de datos) ->
+De vuelta en GestorFicheros, el programa procesa cada agenda.getLista().add(...)
+de adentro hacia afuera:
+- Primero, viaja a la clase Direccion para crear una nueva dirección usando
+su constructor con los datos correspondientes.
+Con esa dirección recién creada en la mano, viaja a la clase Usuario y busca su constructor
+Dentro del constructor de Usuario, asigna los valores recibidos a las variables de cada usuario.
+Cada vez que un objeto Usuario se ha construido, el programa vuelve a GestorFicheros y lo añade
+a la lista de la Agenda.
+
+4. Entrando a la zona de riesgo: El bloque Try-Catch ->
+Una vez que se han pasado los Usuarios, el programa entra en el bloque try.
+Esto le indica a Java: "Intenta hacer lo siguiente, pero si algo sale mal, no te cuelgues,
+salta al bloque catch".
+
+5. Configurando el traductor (JAXB) ->
+El programa ejecuta JAXBContext context = JAXBContext.newInstance(Agenda.class);
+Aquí es donde ocurre mucha "magia" invisible:
+- El programa analiza la clase Agenda y lee la anotación @XmlRootElement(name ="agenda"),
+dándose cuenta de que esa será la etiqueta principal del archivo XML.
+- Luego inspecciona la lista por la anotación @XmlElement(name = "usuario"),
+entendiendo que dentro irán elementos llamados así.
+Automáticamente, inspecciona las clases que cuelgan de ahí (Usuario y Direccion),
+leyendo sus anotaciones @XmlAccessorType(XmlAccessType.FIELD) y @XmlAttribute para
+saber exactamente qué debe ser una etiqueta (ej. <nombre>) y qué debe ser un atributo (ej. id="1").
+- Acto seguido, crea la herramienta que hará el trabajo físico mediante Marshaller
+marshaller = context.createMarshaller();
+
+6. La transformación final y escritura (Marshalling) ->
+La instrucción final y más importante es marshaller.marshal(agenda, new
+File("src/main/java/ficheros/usuarios.xml"));
+Aquí el programa toma toda la estructura que creaste en la memoria
+(el objeto Agenda con sus Usuarios y Direcciones) y comienza a generar un texto estructurado
+basándose en las reglas que leyó en el paso anterior.
+Crea un archivo físico en la ruta especificada dentro de tu disco duro.
+Escribe la cabecera del XML (<?xml version="1.0" ...?>).
+Abre la etiqueta <agenda>, escribe los datos del primer usuario abriendo <usuario id="1"...>,
+dentro escribe el <nombre>, los datos de la <direccion>, cierra el </usuario>,
+y repite el proceso hasta que termina con el último usuario.
+Finalmente cierra la etiqueta </agenda> y guarda el archivo.
+Si todo ha ido bien, el programa termina el bloque try y la ejecución del método concluye exitosamente.
+Si en el último paso (por ejemplo, si la carpeta ficheros/ no existiera y no tuviera permisos para crearla)
+ocurriera un error, el programa saltaría inmediatamente al bloque catch (JAXBException e) e imprimiría
+en la consola: "Error en la codificacion del fichero XML" seguido del motivo del error.
