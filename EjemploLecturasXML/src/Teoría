@@ -11,15 +11,19 @@ Este proceso se divide en varias herramientas clave:
 datos de forma legible tanto para máquinas como para humanos. Funciona con
 etiquetas de apertura <nombre> y cierre </nombre>.
 ----------------------------------------------------
-- JAXB (Java Architecture for XML Binding): Es la tecnología de Java que
+-   JAXB (Java Architecture for XML Binding): Es la tecnología de Java que
 automatiza la conversión entre tus objetos de Java y el archivo XML.
 (El proceso de convertir un Objeto Java a XML se llama Marshalling.
 El proceso inverso (leer el XML y crear objetos Java), Unmarshalling).
 ---------------------------------------------------
-- Anotaciones (@): Son instrucciones especiales que pones encima de clases o
+-   JAXB-RUNTIME: sirve para realizar el enlace (binding) entre objetos
+Java y documentos XML en tiempo de ejecución (runtime). Es la implementación
+funcional de la API de JAXB
+---------------------------------------------------
+-   Anotaciones (@): Son instrucciones especiales que pones encima de clases o
 variables para darle órdenes a JAXB o a Lombok.
 ---------------------------------------------------
-Lombok: Es una librería que sirve para ahorrarte escribir código repetitivo.
+-   Lombok: Es una librería que sirve para ahorrarte escribir código repetitivo.
 Al poner anotaciones como @Getter o @Setter, Lombok genera "invisiblemente"
 los métodos get y set al compilar, dejando tus archivos Java mucho más limpios y
 fáciles de leer.
