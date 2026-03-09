@@ -1,18 +1,17 @@
 package controller;
 
-import model.Agenda;
-import model.Direccion;
-import model.Usuario;
+import modelXml.Agenda;
+import modelXml.Direccion;
+import modelXml.Usuario;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.File;
 
-public class GestorFicheros {
+public class GestorFicherosXml {
 
     public void exportarXML() {
-        // 1. PREPARAMOS LOS DATOS
         // Creamos el objeto raíz
         Agenda agenda = new Agenda();
         // Añadimos usuarios a la lista con sus datos de prueba
@@ -24,21 +23,25 @@ public class GestorFicheros {
 
         // 2. CONVERTIMOS A XML (Marshalling)
         try {
-            // Creamos el "Contexto" de JAXB, avisándole de cuál es la clase raíz (Agenda) que va a manejar
+            /* Creamos el importador (la libraría) "Contexto" de JAXB, avisándole de
+            cuál es la clase raíz (Agenda) que va a manejar */
             JAXBContext context = JAXBContext.newInstance(Agenda.class);
 
-            // Creamos el Marshaller, que es la herramienta que hace la traducción de Java a XML
+            /* Creamos el objeto Marshaller, que es la herramienta que hace la traducción
+            de Java a XML */
             Marshaller marshaller = context.createMarshaller();
 
-            // (La siguiente línea está comentada en tu código, pero si se descomenta
-            // sirve para tabular el XML con saltos de línea y espacios para que sea legible)
-            //marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            /* Si se descomenta la siguiente línea lo que hace es tabular el XML con saltos
+            de línea y espacios para que sea más legible.
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true); */
 
-            // Ejecutamos la traducción: coge el objeto 'agenda' y guárdalo en ese archivo físico.
+            /* Ejecutamos la traducción mediante el metodo marsahll, que lo que hace es
+            coger el objeto 'agenda' y guardarlo en el archivo físico. */
             marshaller.marshal(agenda, new File("src/main/java/ficheros/usuarios.xml"));
 
         } catch (JAXBException e) {
-            // Si algo falla (ej. la ruta del archivo no existe o hay problemas de permisos), salta este error
+            /* Si algo falla (la ruta del archivo no existe, hay problemas de permisos,
+            o hay algún error en la estructura de los datos), salta este error */
             System.out.println("Error en la codificacion del fichero XML");
             System.out.println(e.getMessage());
         }

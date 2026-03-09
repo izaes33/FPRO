@@ -1,4 +1,4 @@
-package model;
+package modelXml;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,8 +16,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.FIELD) // De nuevo, mapea las variables a XML automáticamente.
 public class Usuario {
 
-    // @XmlAttribute le dice a JAXB: "No crees una etiqueta <id>1</id>".
-    // En su lugar, mételo dentro de la etiqueta de apertura del usuario como un atributo: <usuario id="1">
+    /* @XmlAttribute le dice a JAXB: "No crees una etiqueta <id>1</id>".
+    En su lugar, mételo dentro de la etiqueta de apertura del usuario como un atributo: <usuario id="1"> */
     @XmlAttribute
     private int id;
 

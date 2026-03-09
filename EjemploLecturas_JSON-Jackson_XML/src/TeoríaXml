@@ -1,11 +1,12 @@
 Trabajar con archivos XML en Java introduce
 conceptos como las anotaciones, la serialización y las dependencias externas.
 
+
 El objetivo de este código es coger objetos que existen en la memoria del
 programa Java (usuarios y direcciones) y guardarlos en un archivo de texto
 con un formato estructurado llamado XML.
 
-Este proceso se divide en varias herramientas clave:
+Este proceso se apoya en varias herramientas clave:
 ----------------------------------------------------
 -   XML (eXtensible Markup Language): Es un lenguaje de etiquetas que almacena
 datos de forma legible tanto para máquinas como para humanos. Funciona con
@@ -22,11 +23,6 @@ funcional de la API de JAXB
 ---------------------------------------------------
 -   Anotaciones (@): Son instrucciones especiales que pones encima de clases o
 variables para darle órdenes a JAXB o a Lombok.
----------------------------------------------------
--   Lombok: Es una librería que sirve para ahorrarte escribir código repetitivo.
-Al poner anotaciones como @Getter o @Setter, Lombok genera "invisiblemente"
-los métodos get y set al compilar, dejando tus archivos Java mucho más limpios y
-fáciles de leer.
 
 
 Para entender cómo funciona el programa, el "camino" que hace la computadora

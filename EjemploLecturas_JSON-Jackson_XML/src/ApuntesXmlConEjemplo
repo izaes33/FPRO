@@ -1,0 +1,176 @@
+<agenda>
+    <usuario id="1" nombre="Borja" edad="41">
+
+        <asignatura cod="123" horas="2">
+            <nombre>Programacion</nombre>
+            <curso>DAW</curso>
+        </asignatura>
+
+        <asignatura>
+            <nombre>Fundamentos</nombre>
+            <curso>DAW</curso>
+        </asignatura>
+
+    </usuario>
+
+    <usuario></usuario>
+    <usuario></usuario>
+</agenda>
+
+ESTRUCTURA:
+    agenda
+    │
+    └── usuario
+    ├── atributos: id, nombre, edad
+    │
+    └── asignatura (lista)
+    ├── atributos: cod, horas
+    ├── nombre
+    └── curso
+
+
+ATRIBUTOS vs ELEMENTOS
+========================================
+En XML hay dos formas principales de guardar datos:
+
+    1) ATRIBUTOS -> Se escriben dentro de la etiqueta.
+        Ejemplo:
+    <usuario id="1" nombre="Borja" edad="41">
+        Ventajas:
+    - más compacto
+    - se usa para propiedades simples
+    - se usa para identificadores o metadatos
+
+    2) ELEMENTOS (ETIQUETAS CON CONTENIDO)
+        Ejemplo:
+    <nombre>Programacion</nombre>
+        Ventajas:
+    - permite estructuras más complejas
+    - permite añadir más nodos dentro
+    - se usa cuando el dato puede crecer o tener subestructura
+    (Por eso en asignatura el nombre aparece como etiqueta).
+
+    En resumen:
+Datos simples → atributo
+Datos con posible estructura → elemento
+
+
+QUÉ NODOS REPRESENTAN OBJETOS:
+En general en XML los nodos que se repiten o contienen
+otros nodos suelen representar OBJETOS.
+
+        En este ejemplo:
+    agenda      → clase contenedora
+    usuario      → clase Usuario
+    asignatura   → clase Asignatura
+
+        NO SON OBJETOS (son propiedades):
+    -id      -nombre (atributo)       -edad
+    -cod     -horas       -curso
+    -nombre (elemento dentro de asignatura)
+
+
+MODELO DE OBJETOS EN JAVA:
+
+    Agenda
+    └── List<Usuario>
+
+        Usuario
+        ├── id
+        ├── nombre
+        ├── edad
+        └── List<Asignatura>
+
+        Asignatura
+        ├── cod
+        ├── horas
+        ├── nombre
+        └── curso
+
+
+ANOTACIONES JAXB NECESARIAS
+(javax.xml.bind o jakarta.xml.bind)
+import javax.xml.bind.annotation.*;
+import java.util.List;
+
+    CLASE ROOT (agenda)
+        @XmlRootElement(name = "agenda")
+        @XmlAccessorType(XmlAccessType.FIELD)
+        class Agenda {
+        @XmlElement(name = "usuario")
+        private List<Usuario> usuarios;
+
+    CLASE USUARIO
+        @XmlAccessorType(XmlAccessType.FIELD)
+        class Usuario {
+        @XmlAttribute
+        private int id;
+        @XmlAttribute
+        private String nombre;
+        @XmlAttribute
+        private int edad;
+        @XmlElement(name = "asignatura")
+        private List<Asignatura> asignaturas;
+
+    CLASE ASIGNATURA
+        @XmlAccessorType(XmlAccessType.FIELD)
+        class Asignatura {
+        @XmlAttribute
+        private String cod;
+        @XmlAttribute
+        private int horas;
+        @XmlElement
+        private String nombre;
+        @XmlElement
+        private String curso;
+
+
+    EXPLICACIÓN DE LAS ANOTACIONES
+
+        @XmlRootElement: Indica el nodo raíz del XML.
+            En este caso:
+            <agenda>
+
+        @XmlAccessorType(XmlAccessType.FIELD):
+        Le dice a JAXB cómo debe acceder a los datos de la clase
+        cuando convierte entre XML y objetos Java indicando que
+        JAXB usará directamente los atributos de la clase en lugar de getters.
+
+        @XmlAttribute
+        Mapea un atributo XML.
+            Ejemplo:
+            <usuario id="1" nombre="Borja" edad="41">
+
+        @XmlElement: Mapea un nodo XML.
+            Ejemplo:
+            <nombre>Programacion</nombre>
+        (@XmlElement se usa cuando un atributo de una clase
+        se representa en el XML como una ETIQUETA/NODO/ELEMENTO)
+
+
+    CÓMO DECIDIR SI UN ATRIBUTO JAVA ES NODO O ATRIBUTO XML,
+    CRITERIOS DE DISEÑO:
+        ATRIBUTOS XML → datos simples o identificadores
+        sin subestructura
+            Ejemplos:
+            id  codigo  edad    tipo    estado
+        ELEMENTOS (NODOS) → datos importantes o con estructura,
+        (que pueden crecer, tener hijos o repetirse)
+        o cuando puede haber subelementos o listas.
+            Ejemplos:
+            nombre    descripcion    direccion   contenido
+
+    IDEA CLAVE:
+        @XmlAttribute  → dato secundario o identificador
+        @XmlElement    → dato principal del objeto
+
+
+CONVERSIÓN XML -> OBJETO (UNMARSHALLING)
+    JAXBContext context = JAXBContext.newInstance(Agendas.class);
+    Unmarshaller unmarshaller = context.createUnmarshaller();
+    Agenda agenda = (Agenda) unmarshaller.unmarshal(new File("usuarios.xml"));
+
+CONVERSIÓN OBJETO -> XML (MARSHALLING)
+    Marshaller marshaller = context.createMarshaller();
+    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+    marshaller.marshal(agendas, System.out);

@@ -14,30 +14,56 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
+
         <!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.42</version>
         </dependency>
+<!-- Project Lombok es una librería de Java que reduce código repetitivo (boilerplate)
+generando automáticamente métodos comunes en tiempo de compilación.
+Se usa principalmente para evitar escribir:
+getters         setters         constructores
+toString()       equals() y hashCode()       builders -->
 
         <dependency>
             <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>3.1.0</version>
         </dependency>
+<!-- jackson-databind es una librería de Jackson usada para convertir
+objetos Java a JSON y viceversa. Permite:
+Serializar: objeto Java → JSON.
+Deserializar: JSON → objeto Java.
+Se usa muchísimo en APIs REST, especialmente con frameworks como Spring Boot.
+    Ejemplo:
+ObjectMapper mapper = new ObjectMapper();
+User user = mapper.readValue(json, User.class); -->
 
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
+<!-- javax.xml.bind (JAXB) es una API de Java para convertir entre objetos Java y XML.
+(Estaba incluida en el JDK hasta Java 8, pero desde Java 9+ se separó y hay que añadirla como dependencia)
+Permite:
+Marshalling: objeto Java → XML.
+Unmarshalling: XML → objeto Java.
+    Ejemplo:
+JAXBContext context = JAXBContext.newInstance(User.class);
+Unmarshaller um = context.createUnmarshaller();
+User user = (User) um.unmarshal(new File("user.xml")); -->
 
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.9</version>
         </dependency>
+<!-- org.glassfish.jaxb es la implementación concreta de JAXB mantenida por GlassFish.
+(javax.xml.bind es solo la API, pero necesitas una implementación para que funcione).
+org.glassfish.jaxb proporciona esa implementación para Java 9+ y Jakarta.-->
 
     </dependencies>
 

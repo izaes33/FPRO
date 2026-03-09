@@ -1,4 +1,4 @@
-package model;
+package modelXml;
 
 // Importaciones de la librería Lombok para generar código automáticamente
 import lombok.AllArgsConstructor;
@@ -17,9 +17,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @NoArgsConstructor  // Crea un constructor vacío (obligatorio para que JAXB funcione correctamente).
 
 // --- ANOTACIONES DE JAXB ---
-// Le dice a JAXB que por defecto coja todos los campos (FIELD) de esta clase
-// y los convierta en etiquetas XML (ej. <calle>Madrid</calle>)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.FIELD) /* Le dice a JAXB cómo debe acceder a los datos de la clase
+cuando convierte entre XML y objetos Java indicando que JAXB usará directamente los atributos de
+la clase en lugar de getters. Y por defecto le dice a JAXB que coja todos los campos (FIELD)
+de esta clase y los convierta en etiquetas XML (ej. <calle>Madrid</calle>) */
+
 public class Direccion {
 
     // Al no tener anotaciones extra, JAXB creará etiquetas con el mismo nombre que las variables

@@ -1,6 +1,5 @@
-package model;
+package modelXml;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,14 +12,14 @@ import java.util.List;
 
 @Getter
 @Setter
+
 // @XmlRootElement indica que esta clase es la etiqueta contenedora de todo el documento.
 // (name ="agenda") fuerza a que la etiqueta se llame <agenda> en lugar de <Agenda> (por defecto usa el nombre de la clase).
 @XmlRootElement(name ="agenda")
 @XmlAccessorType(XmlAccessType.FIELD)
+
 public class Agenda {
 
-    // @XmlElement obliga a que cada elemento de esta lista se llame <usuario> dentro del XML,
-    // en lugar de usar el nombre de la variable ("lista").
     @XmlElement(name = "usuario")
     private List<Usuario> lista;
 
