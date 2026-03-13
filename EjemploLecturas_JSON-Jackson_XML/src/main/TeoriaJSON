@@ -1,0 +1,24 @@
+JSON (JavaScript Object Notation): Es un formato de texto muy ligero que se usa en todo el mundo para
+enviar y recibir datos por internet. Se basa en clave-valor.
+
+Un objeto JSON va entre llaves {}. Ejemplo: {"nombre": "Juan", "edad": 20}.
+Las listas (arrays) van entre corchetes [].
+
+Mapeo de Objetos (Data Binding): Java es un lenguaje fuertemente tipado (trabaja con Clases y Objetos),
+mientras que JSON es solo texto. El "Mapeo" es el proceso automático de coger ese texto JSON y
+transformarlo en Objetos de Java reales.
+A este proceso de JSON -> Java se le llama Deserialización.
+
+Al proceso inverso (Java -> JSON) se le llama Serialización.
+
+Jackson (ObjectMapper): Jackson es la librería de Java más famosa para hacer este mapeo. Su herramienta
+principal es el ObjectMapper. Lo que hace es leer el texto JSON, mirar las claves (por ejemplo, "price")
+e intentar meter el valor en un atributo de tu clase Java que se llame exactamente igual (private double price;).
+
+CLASES:
+La web de la que se descargan los datos (dummyjson.com/products) no devuelve directamente una lista de productos.
+Devuelve una "caja" (un objeto JSON) que dentro tiene varios datos, y uno de ellos es una lista llamada products.
+ProductosRespuesta representa esa "caja" exterior.
+
+Producto representa cada elemento individual dentro de la lista.
+GestorFicherosJSON es el motor que pone a trabajar a Jackson.

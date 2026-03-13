@@ -1,4 +1,5 @@
 import controller.GestorFicherosXml;
+import controller.GestorFicherosJSON;
 
 public class Main {
 
@@ -6,6 +7,7 @@ public class Main {
         GestorFicherosXml gestorFicherosXml = new GestorFicherosXml();
         gestorFicherosXml.exportarXML();
 
-        //marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        GestorFicherosJSON gestor = new GestorFicherosJSON();
+        gestor.lecturaJSON();
     }
 }

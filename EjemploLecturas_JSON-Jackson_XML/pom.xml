@@ -28,18 +28,20 @@ getters         setters         constructores
 toString()       equals() y hashCode()       builders -->
 
         <dependency>
-            <groupId>tools.jackson.core</groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>3.1.0</version>
+            <version>2.16.0</version>
         </dependency>
-<!-- jackson-databind es una librería de Jackson usada para convertir
+        <!-- jackson-databind es una librería de Jackson usada para convertir
 objetos Java a JSON y viceversa. Permite:
 Serializar: objeto Java → JSON.
 Deserializar: JSON → objeto Java.
 Se usa muchísimo en APIs REST, especialmente con frameworks como Spring Boot.
     Ejemplo:
 ObjectMapper mapper = new ObjectMapper();
-User user = mapper.readValue(json, User.class); -->
+User user = mapper.readValue(json, User.class);
+SU DIFERENCIA FRENTE A JSON.ORG ES QUE JSON ES UN MAPEADOR Y JACKSON HACE LA PETICIÓN,
+LA DEVUELVE Y LA CONVIERTE-->
 
         <dependency>
             <groupId>javax.xml.bind</groupId>
