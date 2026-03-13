@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
 
-public class GestorFicherosJSON {
+public class GestorFicherosJSON_Jackson {
 
     // Guardamos la dirección de internet donde está el archivo JSON.
     private static final String URL_BASE = "https://dummyjson.com/products";

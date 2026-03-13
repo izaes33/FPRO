@@ -1,5 +1,5 @@
 import controller.GestorFicherosXml;
-import controller.GestorFicherosJSON;
+import controller.GestorFicherosJSON_Jackson;
 
 public class Main {
 
@@ -7,7 +7,7 @@ public class Main {
         GestorFicherosXml gestorFicherosXml = new GestorFicherosXml();
         gestorFicherosXml.exportarXML();
 
-        GestorFicherosJSON gestor = new GestorFicherosJSON();
+        GestorFicherosJSON_Jackson gestor = new GestorFicherosJSON_Jackson();
         gestor.lecturaJSON();
     }
 }
