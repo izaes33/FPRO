@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Estudiante` que gestione notas y calcule promedios.
+
+**Requisitos:**
+
+1. Crear una clase `Estudiante` con atributos: `nombre` (String), `edad` (int), `notaMatematicas` (double),
+`notaProgramacion` (double), `notaIngles` (double).
+2. Crear constructor con todos los parámetros.
+3. Crear getters y setters.
+4. Crear método `double calcularPromedio()` que devuelva el promedio de las tres notas.
+5. Crear método `boolean estaAprobado()` que devuelva `true` si el promedio es mayor o igual a 5.
+6. Crear método `String obtenerCalificacion()` que devuelva "Sobresaliente" (9-10), "Notable" (7-8.9), "Bien" (6-6.9), "Suficiente" (5-5.9) o "Insuficiente" (<5).
+7. Crear método `void mostrarInforme()` que muestre nombre, edad, notas, promedio y calificación.
+8. En el `main`, crear varios estudiantes y mostrar sus informes.

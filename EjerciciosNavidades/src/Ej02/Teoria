@@ -1,0 +1,20 @@
+Encapsulamiento: Los atributos de Estudiante son private, protegiendo la integridad de los datos.
+
+En el patrón MVC (Modelo-Vista-Controlador), pasar la vista como parámetro al constructor del controlador
+es lo que permite "conectar los cables" de la aplicación.
+Razones fundamentales:
+1. Desacoplamiento (Independencia)
+El controlador no debería preocuparse por cómo se crea la vista o qué tipo de tecnología usa
+(consola, una ventana de Windows, una página web). Al pasarla como parámetro, el controlador
+simplemente recibe "algo" que sabe mostrar datos.
+Sin parámetro: El controlador tendría que hacer this.vista = new EstudianteView().
+Si mañana se quisiera cambiar la vista, e tendría que modificar el código del controlador.
+2. Comunicación Directa
+El controlador actúa como un "director de orquesta". Para que el director pueda dar órdenes
+a los músicos (la vista), necesita conocerlos.
+Al guardar la vista en una variable privada (this.vista), el controlador puede llamarla en cualquier momento,
+por ejemplo, cuando los datos del estudiante cambian y necesitas refrescar la pantalla automáticamente.
+
+Separación de responsabilidades: Si mañana quisiéramos mostrar el informe en una página web en lugar de la consola,
+solo tendríamos que cambiar la clase Vista, el Modelo seguiría siendo exactamente igual.
+Reutilización: La lógica de si un alumno está aprobado o no está centralizada en el Modelo, evitando repetir código.
