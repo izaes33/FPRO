@@ -1,0 +1,6 @@
+Main crea el objeto Libro (Modelo).
+
+Controller recibe ese objeto.
+
+Cuando llamas a ejecutarDescuento, el Controller le dice al Modelo: "calcula
+tu nuevo precio" y luego le dice a la Vista: "dile al usuario cuánto vale ahora".
