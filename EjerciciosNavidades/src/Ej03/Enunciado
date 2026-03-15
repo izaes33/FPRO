@@ -1,0 +1,24 @@
+**Objetivo:** Crear una clase que simule una cuenta bancaria con operaciones básicas.
+
+**Requisitos:**
+
+1. Crear una clase `CuentaBancaria` con atributos: `titular` (String), `numeroCuenta` (String), `saldo` (double).
+2. Crear constructor que inicialice titular y numeroCuenta. El saldo inicial debe ser 0.
+3. Crear getters. El saldo NO debe tener setter público.
+4. Crear método `void ingresar(double cantidad)` que añada dinero al saldo si la cantidad es positiva.
+5. Crear método `boolean retirar(double cantidad)` que retire dinero si hay saldo suficiente y la cantidad es positiva.
+(Devuelve `true` si la operación tiene éxito).
+6. Crear método `void transferir(CuentaBancaria destino, double cantidad)` que transfiera dinero a otra cuenta.
+7. Crear método `void mostrarInfo()` que muestre titular, número de cuenta y saldo actual.
+8. En el `main`, crear dos cuentas y realizar varias operaciones.
+
+ENTRADA/SALIDA:
+Cuenta creada: Titular: Ana López, Número: ES1234567890, Saldo: 0.0€
+Ingresando 1000€...
+Saldo actual: 1000.0€
+Retirando 300€...
+Operación exitosa. Saldo actual: 700.0€
+Intentando retirar 1000€...
+Saldo insuficiente.
+Transfiriendo 200€ a otra cuenta...
+Transferencia exitosa. Saldo actual: 500.0€
