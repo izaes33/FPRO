@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Producto` para gestionar el inventario de una tienda.
+
+**Requisitos:**
+
+1. Crear una clase `Producto` con atributos: `codigo` (String), `nombre` (String), `precio` (double), `stock` (int).
+2. Crear constructor con todos los parámetros.
+3. Crear getters y setters.
+4. Crear método `boolean hayStock()` que devuelva `true` si el stock es mayor que 0.
+5. Crear método `boolean vender(int cantidad)` que reduzca el stock si hay suficiente. Devuelve `true` si la venta es exitosa.
+6. Crear método `void reabastecer(int cantidad)` que añada unidades al stock.
+7. Crear método `double calcularValorInventario()` que devuelva el valor total del stock (precio × stock).
+8. Crear método `void mostrarInfo()` con formato: "Código: XXX, Nombre: XXX, Precio: XXX€, Stock: XXX, Valor total: XXX€"
+9. En el `main`, crear varios productos y simular ventas y reabastecimientos.
