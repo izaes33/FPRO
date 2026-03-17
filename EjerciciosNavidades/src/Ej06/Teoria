@@ -1,0 +1,2 @@
+Lógica de Presentación: El formato "2h 15min" se calcula en el modelo porque es una transformación de sus propios datos,
+pero es el controlador quien decide cuándo llamar a ese método.

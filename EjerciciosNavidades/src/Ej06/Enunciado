@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Pelicula` para gestionar información de películas.
+
+**Requisitos:**
+
+1. Crear una clase `Pelicula` con atributos: `titulo` (String), `director` (String), `duracion` (int en minutos),
+`anio` (int), `calificacion` (double de 0 a 10).
+2. Crear constructor con todos los parámetros.
+3. Crear getters y setters. El setter de calificación debe validar que esté entre 0 y 10.
+4. Crear método `String obtenerDuracionFormateada()` que devuelva la duración en formato "Xh Ymin" (ej: "2h 15min").
+5. Crear método `boolean esClasica()` que devuelva `true` si la película tiene más de 25 años.
+6. Crear método `boolean esRecomendable()` que devuelva `true` si la calificación es mayor o igual a 7.
+7. Crear método `void mostrarInfo()` con toda la información de la película.
+8. En el `main`, crear una colección de películas y mostrar cuáles son recomendables.
