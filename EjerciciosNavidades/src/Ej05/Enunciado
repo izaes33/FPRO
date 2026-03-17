@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Rectangulo` que calcule área y perímetro.
+
+**Requisitos:**
+
+1. Crear una clase `Rectangulo` con atributos: `base` (double), `altura` (double).
+2. Crear constructor con ambos parámetros.
+3. Crear getters y setters que validen que base y altura sean positivas.
+4. Crear método `double calcularArea()` que devuelva base × altura.
+5. Crear método `double calcularPerimetro()` que devuelva 2 × (base + altura).
+6. Crear método `boolean esCuadrado()` que devuelva `true` si base y altura son iguales.
+7. Crear método `void escalar(double factor)` que multiplique base y altura por el factor dado.
+8. Crear método `void mostrarInfo()` que muestre base, altura, área, perímetro y si es cuadrado.
+9. En el `main`, crear varios rectángulos y probar todos los métodos.
