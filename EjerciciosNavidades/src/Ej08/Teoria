@@ -1,0 +1,26 @@
+Encapsulamiento de Lógica:
+En viajar, el controlador no toca el combustible ni calcula la autonomía, solo le dice al modelo “conduce X km” y luego
+pide los resultados (calcularAutonomia, kmHastaRevision).
+Si mañana el consumo cambia (por ejemplo en invierno), solo se modifica el modelo, y todo lo demás sigue funcionando igual.
+Esto hace que la lógica del coche esté centralizada y protegida.
+
+Validación de Capacidades:
+El método repostar controla que nunca haya más de 60L y devuelve la cantidad real repostada.
+Esto garantiza que los datos sean siempre realistas y consistentes, y además permite informar correctamente al usuario
+de cuánto combustible se añadió de verdad.
+
+Cálculos derivados en el modelo:
+He añadido métodos como calcularAutonomia y kmHastaRevision, que mantienen toda la lógica dentro del modelo.
+Así el controller y la vista no duplican cálculos y el sistema es más mantenible.
+
+Separación total MVC:
+El modelo solo sabe de datos y reglas del coche (kilometraje, combustible, consumo, autonomía, revisiones).
+El controlador recibe órdenes del usuario y coordina al modelo y la vista, pero nunca hace cálculos internos.
+La vista solo se encarga de mostrar información de manera clara, con formato y bloques visuales, sin tocar datos ni lógica.
+
+Esto  permite cambiar cualquiera de las capas sin romper las otras, por ejemplo:
+cambiar el diseño de la consola o añadir nuevas estadísticas no afecta al modelo.
+
+Formateo y presentación:
+Uso printf("%.2f") para los números, y además separadores e iconos en la vista. Así los datos son legibles y profesionales,
+y se evitan decimales infinitos que quedaban mal en la entrega.

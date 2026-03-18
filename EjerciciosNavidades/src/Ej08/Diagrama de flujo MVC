@@ -1,0 +1,38 @@
+                ┌───────────────┐
+                │   USUARIO     │
+                │ (Consola/Scanner) │
+                └───────┬───────┘
+                        │
+                        ▼
+                ┌───────────────┐
+                │ CONTROLLER    │
+                │ CocheController │
+                │ - recibir órdenes  │
+                │ - coordinar modelo │
+                │   y vista          │
+                └───────┬───────┘
+                        │
+        ┌───────────────┴───────────────┐
+        ▼                               ▼
+┌───────────────┐                ┌───────────────┐
+│    MODELO     │                │     VISTA     │
+│    Coche      │                │  CocheView    │
+│ - kilometraje │                │ - mostrarInfo │
+│ - combustible │                │ - mostrarMensaje │
+│ - conducir()  │                │ - bloques y formateo │
+│ - repostar()  │                └───────────────┘
+│ - calcularAutonomia() │
+│ - kmHastaRevision()   │
+└───────────────┘
+
+🔹 Cómo funciona:
+Usuario elige opción en consola (viajar, repostar, ver estado).
+Controller recibe la orden y decide qué hacer: llama al modelo para los cálculos y a la vista para mostrar resultados.
+Modelo solo contiene los datos y la lógica del coche (combustible, kilometraje, autonomía).
+Vista solo presenta información de forma clara y profesional, sin alterar datos ni lógica.
+
+🔹 Beneficios:
+Flexibilidad: Cambias la lógica del modelo sin tocar vista ni controller.
+Seguridad: La vista nunca modifica datos; el modelo nunca sabe de la consola.
+Mantenimiento: Los cálculos derivados (autonomía, km hasta revisión) están centralizados en el modelo.
+Profesionalidad: Los datos se muestran formateados, con iconos y bloques visuales claros.
