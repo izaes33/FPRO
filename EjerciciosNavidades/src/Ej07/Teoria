@@ -1,0 +1,6 @@
+Persistencia Temporal: El atributo horasExtras actúa como un acumulador. Mientras no se llame a resetearHorasExtras(),
+el valor sigue creciendo.
+
+Separación de Lógica: SalarioTotal no es un atributo (no hay private double salarioTotal).
+Es un dato calculado. -Nunca debemos guardar en un atributo algo que se puede calcular a
+partir de otros atributos, para evitar inconsistencias.-

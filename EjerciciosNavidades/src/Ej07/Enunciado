@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Empleado` que calcule salarios y bonificaciones.
+
+**Requisitos:**
+
+1. Crear una clase `Empleado` con atributos: `nombre` (String), `dni` (String), `salarioBase` (double), `horasExtras` (int).
+2. Crear constructor con nombre, dni y salarioBase. Las horasExtras empiezan en 0.
+3. Crear getters y setters.
+4. Crear método `void agregarHorasExtras(int horas)` que sume horas extras.
+5. Crear método `double calcularSalarioTotal()` que devuelva el salarioBase más 20€ por cada hora extra.
+6. Crear método `void aplicarAumento(double porcentaje)` que incremente el salarioBase según el porcentaje.
+7. Crear método `void resetearHorasExtras()` que ponga las horas extras a 0.
+8. Crear método `void mostrarInforme()` que muestre nombre, DNI, salario base, horas extras y salario total.
+9. En el `main`, crear varios empleados, añadir horas extras, calcular salarios y aplicar aumentos.
