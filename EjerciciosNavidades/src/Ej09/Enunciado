@@ -1,0 +1,13 @@
+**Objetivo:** Crear una clase `Tienda` que gestione un inventario de productos usando la clase `Producto` del ejercicio anterior.
+
+**Requisitos:**
+
+1. Usar la clase `Producto` del Ejercicio 4.
+2. Crear una clase `Tienda` con atributos: `nombre` (String), `productos` (array de Producto), `numProductos` (int).
+3. Crear constructor que inicialice el nombre y cree un array de productos con capacidad para 50 productos.
+4. Crear método `boolean agregarProducto(Producto producto)` que añada un producto al array si hay espacio.
+5. Crear método `Producto buscarProducto(String codigo)` que busque y devuelva un producto por su código (o `null` si no existe).
+6. Crear método `void listarProductos()` que muestre todos los productos del inventario.
+7. Crear método `double calcularValorTotalInventario()` que sume el valor de todos los productos.
+8. Crear método `void listarProductosSinStock()` que muestre solo los productos sin stock.
+9. En el `main`, crear una tienda, añadir varios productos y probar todos los métodos.
