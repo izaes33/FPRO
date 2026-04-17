@@ -1,0 +1,29 @@
+3 tipos de pruebas ->
+
+-Pruebas de integración-> Probar cómo funciona el entorno completo
+(Se realizan en proyectos grandes, y suelen actuar en un servidor intermedio como Springboot)
+
+-Testing->
+
+    -Pruebas unitarias->            metodo (parametro parametro)
+                                        retorno
+                                    metodo (parametro parametro) throw Exception
+                                        retorno
+
+    ¿comportamiento esperado?-> ¿Retorno correcto? ¿Excepción correcto?
+
+        -Pruebas parametrizadas->   @test
+                                    ParametrosCSV({"x,x,x","x,x,x","x,x,x"})
+                                    metodo (parametro parametro)
+
+
+Para ejecutar testing, al crear un proyecto de tipo Maven se nos creará automáticamente una carpeta llamada
+test a la misma altura que la carpeta main, en ella, vamos a añadir una clase test por cada model (por ejemplo:
+model->Banco/test->BancoTest.
+(En File->Project Structure podemos ver para qué sirve cada parte de la estructura del programa; un proyecto
+de tipo Maven viene configurado por defecto para testing, aunque también se puede configurar un proyecto
+de tipo Java).
+
+Los test se pueden ejecutar individualmente sin necesidad de hacer correr el programa completo.
+Para ejecutar pruebas de testing automatizadas vamos a utilizar una librería que se llama JUnit en la versión 5
+(gratuita).
